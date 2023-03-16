@@ -17,7 +17,11 @@ import logicaNegocio.manejoImagenes;
 import org.springframework.web.multipart.MultipartFile;
 
 public class educacionDB implements IEducacion{
-
+    
+    /*
+    Obtiene todos los datos de la tabla educación, incluyendo los blobs que contienen las
+    fotos. Los blobs se convierten a base 64 y se guardan en el objeto entidad como string
+    */
     @Override
     public List<Educacion> getEducacion() throws SQLException, IOException{
         accesoDB datos = new accesoDB();
@@ -29,22 +33,28 @@ public class educacionDB implements IEducacion{
         while(resultado.next()){
             Educacion educacion = new Educacion();
             
+            //se obtiene el campo foto de la tabla
             Blob blob = resultado.getBlob("foto");
             
             if (resultado.wasNull()) {
+                //si no hay foto en la db el atributo del objeto educacion se setea como null
                 educacion.setFoto(null);
             } 
             else {
+                //si hay foto en db el blob se convierte a base 64 y se guarda el string
+                //preparado para ser utilizado como imagen en el front
                byte[] bytes = manejoImg.obtenerBytes(blob);
                String base64 = manejoImg.codificarBase64(bytes);
                String listo = "data:image/jpg;base64," + base64;
                educacion.setFoto(listo);
             }
         
+            //se obtienen todos los datos restantes y se guardan en el objeto educacion que será enviado al front-end
             educacion.setId(resultado.getInt("id"));
             educacion.setTitulo(resultado.getString("titulo"));
             educacion.setInstitucion(resultado.getString("institucion"));
-            //formatear fecha
+            
+            //formatear fecha (la fecha se envía como string con el formato dd/MM/YYYY)
             Date fecha = resultado.getDate("fechainicio");
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             
@@ -59,6 +69,9 @@ public class educacionDB implements IEducacion{
         return lista;
     }
     
+    /*
+        edita todos los campos de la tabla menos el de la foto
+    */
     @Override
     public String editEducacion(Educacion educacion) throws SQLException {
         accesoDB datos = new accesoDB();
@@ -76,6 +89,11 @@ public class educacionDB implements IEducacion{
         
     }
     
+    
+    
+    /*
+    agrega una nueva fila a la tabla insertando todos los campos menos el campo foto
+    */
     @Override
     public String agregarEducacion(Educacion educacion) throws SQLException, ParseException{
         accesoDB datos = new accesoDB();
@@ -92,6 +110,9 @@ public class educacionDB implements IEducacion{
         
     }
     
+    /*
+    Elimina la fila correspondiente de la db
+    */
     @Override
     public String deleteEducacion(Integer id) throws SQLException{
         accesoDB datos = new accesoDB();
@@ -101,6 +122,9 @@ public class educacionDB implements IEducacion{
         return "Eliminado con exito";
     }
     
+    /*
+    inserta un blob en el campo foto de la tabla
+    */
     @Override
     public String editFoto(MultipartFile foto, Integer id) throws FileNotFoundException, SQLException, IOException{
         accesoDB datos = new accesoDB();
