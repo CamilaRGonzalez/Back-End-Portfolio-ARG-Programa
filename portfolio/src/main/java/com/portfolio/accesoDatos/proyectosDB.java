@@ -44,6 +44,7 @@ public class proyectosDB implements IProyectos{
             proyecto.setNombre(resultado.getString("nombre"));
             proyecto.setTecnologias(resultado.getString("tecnologias"));
             proyecto.setDescripcion(resultado.getString("descripcion"));
+            proyecto.setLink(resultado.getString("link"));
                     
             lista.add(proyecto);
         }
@@ -56,10 +57,11 @@ public class proyectosDB implements IProyectos{
     public String agregarProyecto(Proyectos proyecto) throws SQLException{   
         accesoDB datos = new accesoDB();
         
-        datos.sentenciaConParametros("insert into proyectos (nombre,tecnologias,descripcion) values (?,?,?)");
+        datos.sentenciaConParametros("insert into proyectos (nombre,tecnologias,descripcion,link) values (?,?,?,?)");
         datos.setearParametros(1, proyecto.getNombre());
         datos.setearParametros(2, proyecto.getTecnologias());
         datos.setearParametros(3, proyecto.getDescripcion());
+        datos.setearParametros(4, proyecto.getLink());
         datos.ejecutarAccionParametros();
         datos.cerrarConexion();
         
@@ -70,11 +72,12 @@ public class proyectosDB implements IProyectos{
     public String editarProyecto(Proyectos proyecto) throws SQLException{
         accesoDB datos = new accesoDB();
         
-        datos.sentenciaConParametros("update proyectos set nombre=?, tecnologias =?, descripcion =? where id=?");
+        datos.sentenciaConParametros("update proyectos set nombre=?, tecnologias =?, descripcion =?, link = ? where id=?");
         datos.setearParametros(1, proyecto.getNombre());
         datos.setearParametros(2, proyecto.getTecnologias());
         datos.setearParametros(3, proyecto.getDescripcion());
-        datos.setearParametros(4, proyecto.getId().toString());
+        datos.setearParametros(4, proyecto.getLink());
+        datos.setearParametros(5, proyecto.getId().toString());
         
         datos.ejecutarAccionParametros();
         datos.cerrarConexion();

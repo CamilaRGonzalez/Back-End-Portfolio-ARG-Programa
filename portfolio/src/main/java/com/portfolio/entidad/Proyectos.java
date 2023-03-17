@@ -13,4 +13,5 @@ public class Proyectos {
     private String tecnologias;
     private String descripcion;
     private String foto;
+    private String link;
 }
