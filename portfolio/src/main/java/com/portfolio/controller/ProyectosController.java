@@ -1,4 +1,4 @@
-package com.example.demo.controlador;
+package com.portfolio.controller;
 
 import com.portfolio.accesoDatos.proyectosDB;
 import com.portfolio.entidad.Proyectos;

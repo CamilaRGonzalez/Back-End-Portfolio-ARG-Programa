@@ -1,4 +1,4 @@
-package com.example.demo.controlador;
+package com.portfolio.controller;
 
 import com.portfolio.accesoDatos.personaDB;
 import com.portfolio.entidad.Persona;
