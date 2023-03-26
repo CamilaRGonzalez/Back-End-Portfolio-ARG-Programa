@@ -29,5 +29,14 @@ public class usuariosDB {
         
         return false;
     }
+    
+    public boolean NuevoUsuario(String usuario, String pass) throws SQLException{       
+        String password = Seguridad.doHashing(pass);
+        String query = "insert into usuarios (usuario,pass,idpersona) values (\""+usuario+"\",\""+password+"\",1)";
+        
+        accesoDB datos = new accesoDB();
+        datos.consultaSinParametros(query);        
+        return true;     
+    }
 }
 
