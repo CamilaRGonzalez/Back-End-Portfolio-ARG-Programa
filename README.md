@@ -6,15 +6,15 @@ Back end del proyecto final de Argentina Programa (portfolio editable) desarroll
 -MariaDB</br>
 
 <h2>Instalación</h2>
-- Clona este repositorio en tu computadora.</br>
-- Crea una base de datos MariaDB</br>
-- Modifica la configuración de la base de datos en el archivo application.properties para que apunte a tu base de datos.</br>
+- Cloná este repositorio en tu computadora.</br>
+- Creá una base de datos MariaDB</br>
+- Modificá la configuración de la base de datos en el archivo application.properties para que apunte a tu base de datos.</br>
 - Abrí el proyecto desde tu IDE y descargá las dependencias declaradas</br>
 
 
 <h2>Uso</h2>
-- Crea un usuario y contraseña en la tabla usuarios de la base de datos. Podes hacerlo de manera directa mediante comandos sql o a través del endpoint POST/login/nuevo (Request Parameters: usuario, pass)</br>
-- Una vez creado el usuario puedes usar el front-end para ingresar como administrador y cargar los datos del portfolio de manera gráfica o puedes usar los endpoints de la aplicación a través de postman.</br></br>
+- Creá un usuario y contraseña en la tabla usuarios de la base de datos. Podés hacerlo de manera directa mediante comandos sql o a través del endpoint POST/login/nuevo (Request Parameters: usuario, pass)</br>
+- Una vez creado el usuario podés usar el front-end para ingresar como administrador y cargar los datos del portfolio de manera gráfica o podés usar los endpoints de la aplicación a través de postman.</br></br>
 
 La API tiene los siguientes endpoints: </br>
 
