@@ -11,7 +11,8 @@ public class accesoDB {
     private ResultSet resultado;
     
     public accesoDB() throws SQLException {
-        this.conexion = DriverManager.getConnection ("jdbc:mariadb://localhost:3306/portfolio","camila", "rock");
+        //this.conexion = DriverManager.getConnection ("jdbc:mariadb://localhost:3306/portfolio","camila", "rock");
+        this.conexion = DriverManager.getConnection ("jdbc:mysql://uaz1abkvvn6ejlub:Kj3Kb8TmfDBWOntS7Sxh@b313lgcvty7urgg9xcnj-mysql.services.clever-cloud.com:3306/b313lgcvty7urgg9xcnj","uaz1abkvvn6ejlub", "Kj3Kb8TmfDBWOntS7Sxh");
     }
     
     public void sentenciaConParametros(String consulta) throws SQLException{
