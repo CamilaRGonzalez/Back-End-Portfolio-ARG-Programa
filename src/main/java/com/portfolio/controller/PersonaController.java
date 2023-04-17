@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping(path="/personas")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://arg-programa-portfolio.web.app"})
 public class PersonaController {
     private PersonaService datosDB = new PersonaService(new personaDB());
        

@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping(path="/habilidades")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://arg-programa-portfolio.web.app"})
 public class HabilidadesController {
     private final HabilidadesService datosDB = new HabilidadesService(new habilidadesDB());
     

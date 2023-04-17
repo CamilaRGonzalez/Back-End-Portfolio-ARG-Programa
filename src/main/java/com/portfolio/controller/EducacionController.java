@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping(path="/educacion")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://arg-programa-portfolio.web.app"})
 public class EducacionController {
     private final EducacionService datosDB = new EducacionService(new educacionDB());
     

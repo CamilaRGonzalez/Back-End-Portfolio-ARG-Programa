@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path="/login")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://arg-programa-portfolio.web.app"})
 public class UsuariosController {
     private usuariosDB datosDB= new usuariosDB();
     
