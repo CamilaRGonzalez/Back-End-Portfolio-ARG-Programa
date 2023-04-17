@@ -83,7 +83,7 @@ public class educacionDB implements IEducacion{
         datos.setearParametros(4, educacion.getEstado());
         datos.setearParametros(5,educacion.getId().toString());
         
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         return "editado con exito";
         
@@ -104,7 +104,7 @@ public class educacionDB implements IEducacion{
         datos.setearParametros(3, educacion.getFechainicio());
         datos.setearParametros(4, educacion.getEstado());
       
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         return "Editado con exito";
         
@@ -117,7 +117,7 @@ public class educacionDB implements IEducacion{
     public String deleteEducacion(Integer id) throws SQLException{
         accesoDB datos = new accesoDB();
         
-        datos.consultaSinParametros("delete from educacion where id= "+id.toString());
+        datos.consultaUpdateSinParametros("delete from educacion where id= "+id.toString());
         datos.cerrarConexion();
         return "Eliminado con exito";
     }
@@ -135,7 +135,7 @@ public class educacionDB implements IEducacion{
         datos.setearParametroBinaryStream(1, stream, (int)foto.getSize());
         datos.setearParametros(2, id.toString());
         
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         return "Editado con exito";
         

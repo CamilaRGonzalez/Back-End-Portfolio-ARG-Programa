@@ -63,7 +63,7 @@ public class personaDB implements IPersona{
         datos.setearParametros(3, persona.getSobremi());
         datos.setearParametros(4, persona.getId().toString());
         
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         
         return "Editado con exito";
@@ -78,7 +78,7 @@ public class personaDB implements IPersona{
         //insertar blob en base de datos
         datos.sentenciaConParametros("update persona set foto = ?");       
         datos.setearParametroBinaryStream(1, stream, (int)foto.getSize());
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         return "Editado con exito";
         

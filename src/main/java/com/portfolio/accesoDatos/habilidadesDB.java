@@ -61,7 +61,7 @@ public class habilidadesDB implements IHabilidades{
         datos.setearParametros(3, habilidad.getPorcentaje().toString());
         datos.setearParametros(4, habilidad.getId().toString());
 
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         return "editado con exito";
         
@@ -76,7 +76,7 @@ public class habilidadesDB implements IHabilidades{
         datos.setearParametros(2, habilidad.getTipo());
         datos.setearParametros(3, habilidad.getPorcentaje().toString());
 
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         return "editado con exito";
         
@@ -86,7 +86,7 @@ public class habilidadesDB implements IHabilidades{
     public String eliminarHabilidad(Integer id) throws SQLException{
         accesoDB datos = new accesoDB();
         
-        datos.consultaSinParametros("delete from habilidades where id= " +id.toString());
+        datos.consultaUpdateSinParametros("delete from habilidades where id= " +id.toString());
         datos.cerrarConexion();
         return "Eliminado con exito";      
     }
@@ -101,7 +101,7 @@ public class habilidadesDB implements IHabilidades{
         datos.setearParametroBinaryStream(1, stream, (int)foto.getSize());
         datos.setearParametros(2, id.toString());
         
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         return "Editado con exito";
         

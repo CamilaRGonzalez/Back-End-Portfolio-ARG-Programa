@@ -62,7 +62,7 @@ public class proyectosDB implements IProyectos{
         datos.setearParametros(2, proyecto.getTecnologias());
         datos.setearParametros(3, proyecto.getDescripcion());
         datos.setearParametros(4, proyecto.getLink());
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         
         return "Editado con exito";
@@ -79,7 +79,7 @@ public class proyectosDB implements IProyectos{
         datos.setearParametros(4, proyecto.getLink());
         datos.setearParametros(5, proyecto.getId().toString());
         
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         
         return "Editado con exito";
@@ -89,7 +89,7 @@ public class proyectosDB implements IProyectos{
     public String eliminarProyecto(Integer id) throws SQLException{
         accesoDB datos = new accesoDB();
         
-        datos.consultaSinParametros("delete from proyectos where id= "+id.toString());
+        datos.consultaUpdateSinParametros("delete from proyectos where id= "+id.toString());
    
         datos.cerrarConexion();
         return "Eliminado con exito";
@@ -107,7 +107,7 @@ public class proyectosDB implements IProyectos{
         datos.setearParametroBinaryStream(1, stream, (int)foto.getSize());
         datos.setearParametros(2, id.toString());
         
-        datos.ejecutarAccionParametros();
+        datos.ejecutarUpdateParametros();
         datos.cerrarConexion();
         return "Editado con exito";
         

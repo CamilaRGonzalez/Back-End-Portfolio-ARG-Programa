@@ -11,7 +11,7 @@ public class accesoDB {
     private ResultSet resultado;
     
     public accesoDB() throws SQLException {
-        //this.conexion = DriverManager.getConnection ("jdbc:mariadb://localhost:3306/portfolio","camila", "rock");
+        //this.conexion = DriverManager.getConnection ("jdbc:mysql://localhost:3306/portfolio?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root", "root");
         this.conexion = DriverManager.getConnection ("jdbc:mysql://uaz1abkvvn6ejlub:Kj3Kb8TmfDBWOntS7Sxh@b313lgcvty7urgg9xcnj-mysql.services.clever-cloud.com:3306/b313lgcvty7urgg9xcnj","uaz1abkvvn6ejlub", "Kj3Kb8TmfDBWOntS7Sxh");
     }
     
@@ -27,6 +27,10 @@ public class accesoDB {
         this.sentenciaParametros.setDate(numero, fecha);
     }
     
+    public void ejecutarUpdateParametros() throws SQLException{
+        this.sentenciaParametros.executeUpdate();
+    }
+    
     public ResultSet ejecutarAccionParametros() throws SQLException{
         this.resultado = this.sentenciaParametros.executeQuery();
         return this.resultado;
@@ -36,6 +40,11 @@ public class accesoDB {
         this.sentencia = conexion.createStatement();
         resultado = this.sentencia.executeQuery (consulta);       
         return resultado;
+    }
+    
+    public void consultaUpdateSinParametros(String consulta) throws SQLException{
+        this.sentencia = conexion.createStatement();
+        this.sentencia.executeUpdate(consulta);       
     }
     
     public void cerrarConexion() throws SQLException{
