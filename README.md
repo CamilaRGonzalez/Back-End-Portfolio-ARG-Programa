@@ -7,7 +7,7 @@ Back end del proyecto final de Argentina Programa (portfolio editable) desarroll
 
 <h2>Instalación</h2>
 - Cloná este repositorio en tu computadora.</br>
-- Creá una base de datos MariaDB</br>
+- Creá una base de datos mysql</br>
 - Modificá la configuración de la base de datos en el archivo application.properties para que apunte a tu base de datos.</br>
 - Abrí el proyecto desde tu IDE y descargá las dependencias declaradas</br>
 
